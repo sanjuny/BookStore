@@ -1,5 +1,6 @@
-import axios from "../Axios/userAxios";
+import axiosJWT from "../Axios/PrivateAxios";
 
-export const Orderbooks = (data) => axios.post(`/orderdata`, data);
+export const Orderbooks = (data) => axiosJWT.post("/orderdata", data);
 
-export const GetbookData = () => axios.get("/getorder");
+export const GetbookData = (userId) => axiosJWT.get(`/getorder/${userId}`);
+

@@ -24,8 +24,7 @@ function Home() {
             <Link
               to='/books'
               type="button"
-              className="flex mt-4 w-64 px-6 py-2 border-2 border-gray-200  font-medium text-xs uppercase rounded-full  hover:bg-amber-800 text-white transition duration-150 ease-in-out"
-            >
+              className="flex mt-4 w-64 px-6 py-2 border-2 border-gray-200  font-medium text-xs uppercase rounded-full  hover:bg-amber-800 text-white transition duration-150 ease-in-out">
               Explore more books
               <BiRightArrowAlt size={14} />
             </Link>

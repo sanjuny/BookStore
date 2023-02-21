@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { LoginData } from "../Api/UserAuthentication";
+import Cookies from "universal-cookie";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -15,6 +16,7 @@ function Login() {
   } = useForm();
 
   const navigate = useNavigate();
+  const cookies = new Cookies();
 
   const [request, setrequest] = useState(false);
   const [er, setEr] = useState("");
@@ -23,6 +25,10 @@ function Login() {
     setrequest(true);
     try {
       const { data } = await LoginData(formdata);
+      console.log(data, "data");
+      localStorage.setItem("userId", data.user);
+      localStorage.setItem("refToken", data.refreshToken);
+      cookies.set("accessToken", data.accessToken, { path: "/" });
       toast.success(data.message + "\n navigating to login..");
       setTimeout(() => {
         navigate("/home");

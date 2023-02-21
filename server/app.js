@@ -4,8 +4,10 @@ const app = express();
 const cors = require("cors");
 const PORT = 5000;
 const session = require("express-session");
+var cookieParser = require("cookie-parser");  
 app.use(cors());
 app.use(express.json());
+app.use(cookieParser());  
 const oneDay = 1000 * 60 * 60 * 24
 app.use(
   session({

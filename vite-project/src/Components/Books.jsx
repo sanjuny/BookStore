@@ -10,7 +10,7 @@ function Books() {
    
     axios
       .get(
-        `https://www.googleapis.com/books/v1/volumes?q=harry+potter&maxResults=40`
+        `https://www.googleapis.com/books/v1/volumes?q=harry+potter&maxResults=5`
     )
       
       .then((response) => {
